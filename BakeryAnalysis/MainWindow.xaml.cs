@@ -1,6 +1,7 @@
 ﻿using BakeryAnalysis.Helpers;
 using BakeryAnalysis.Models;
 using BakeryAnalysis.Repositories;
+using BakeryAnalysis.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,26 +26,20 @@ namespace BakeryAnalysis
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static readonly ProductsRepository _productRepository = new ProductsRepository();
-        private static readonly BuyersRepository _buyersRepository = new BuyersRepository();
-        public ObservableCollection<Buyer> buyers;
-        private static readonly Geters _geters = new Geters();
-
+        private ViewModelLocator viewModelLocator = new ViewModelLocator();
         public MainWindow()
         {
             InitializeComponent();
 
-            var productsFromFile = _geters.GetProductsFromFile("FilesForAnalise/Products.csv");
-            _productRepository.AddProducts(productsFromFile);
-            var buyersFromFile = _geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", productsFromFile);
-            _buyersRepository.AddBuyers(buyersFromFile);
+            BuyersList.ItemsSource = viewModelLocator.BuyersAnaliseViewModel.AllBuyers;
             
+
             //var buyer = _buyersRepository.GetBuyers().FirstOrDefault();
             //buyers = new ObservableCollection<Buyer>(buyersFromFile);
             //buyers.Remove(buyers.FirstOrDefault());
-            buyers = new ObservableCollection<Buyer>(buyersFromFile);
 
-            DataContext = buyers;
+            //buyers = new ObservableCollection<Buyer>(buyersFromFile.Where(x => x.SumOfProfits != 0).ToList());
+            //DataContext = buyers;
 
             //buyersListPurched.ItemsSource = buyers.Select(x => x.Purchased.Sum()).ToList();
             //buyersListReturned.ItemsSource = buyers.Select(x => x.Returned.Sum()).ToList();
@@ -57,7 +52,7 @@ namespace BakeryAnalysis
 
             if (selectedBuyer != null)
             {
-                buyers.Remove(selectedBuyer);
+                //ViewModelLocator.BuyersAnaliseViewModel.AllBuyers.Remove(selectedBuyer);
             }
         }
     }

@@ -15,29 +15,5 @@ namespace BakeryAnalysis.Models
         public List<double> Prise = new List<double>();
         public List<double> Profits = new List<double>();
         public double SumOfProfits { get; set; }
-        
-
-        public void DisplayBuyer()
-        {
-            Console.WriteLine(Name);
-            Console.WriteLine("Product          Purchased          Returned         Prise");
-
-            for (int i = 0; i < Product.Count(); i++)
-            {
-                Console.WriteLine($"{Product[i]}      {Purchased[i]}            {Returned[i]}         {Prise[i]} ");
-            }
-        }
-
-        public void DisplayProduktsAndProfits()
-        {
-            Console.WriteLine(Name);
-            Console.WriteLine("Product | Profits");
-            for (int i = 0; i < Product.Count(); i++)
-            {
-                Console.WriteLine($"{Product[i]}  |  {Profits[i]} ");
-            }
-
-            Console.WriteLine("sum of Profits = " + SumOfProfits);
-        } 
     }
 }

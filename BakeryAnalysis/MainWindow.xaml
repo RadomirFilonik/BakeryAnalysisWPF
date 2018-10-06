@@ -7,24 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
-        <DockPanel Margin="10">
-            <StackPanel DockPanel.Dock="Right">
-                <Button x:Name="deleteButton" Click="DeleteButton_Click" Margin="10,0,10,0">Delete Buyer</Button>
-            </StackPanel>
-            <ListBox x:Name="BuyersList" ItemsSource="{Binding}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Width="666">
-                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding SumOfProfits}" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            <!--<ListBox Name="buyersListPurched"/>-->
-            <!--<ListBox Name="buyersListReturned"/>-->
-        </DockPanel>
-
+        <TabControl >
+            <TabItem x:Name="BuyersAnalise" Header="Buyers analise">
+                <DockPanel Margin="10">
+                    <StackPanel DockPanel.Dock="Right">
+                        <Button x:Name="deleteButton" Click="DeleteButton_Click" Margin="10,0,10,0">Delete Buyer</Button>
+                    </StackPanel>
+                    <ListBox x:Name="BuyersList" ItemsSource="{Binding AllBuyers}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <local:BuyerUserControl></local:BuyerUserControl>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Products analise">
+                <Grid>
+                    <ListBox x:Name="ProducktsList">
+                        
+                    </ListBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

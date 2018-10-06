@@ -12,7 +12,7 @@ namespace BakeryAnalysis.Repositories
     {
         private List<Buyer> _allBuyers = new List<Buyer>();
 
-        public List<Buyer> GetBuyers()
+        public IEnumerable<Buyer> GetBuyers()
         {
             return _allBuyers;
         }

@@ -5,8 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BakeryAnalysis"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="45" d:DesignWidth="663">
+    <Grid Background="AntiqueWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="221*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock  Text="{Binding Name}" Grid.Column="0" Background="Aqua" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" TextAlignment="Center"/>
+        <TextBlock Text="In Progress" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" TextAlignment="Center"/>
+        <TextBlock Text="{Binding SumOfProfits}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" TextAlignment="Center"/>
+
     </Grid>
 </UserControl>

@@ -63,6 +63,8 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Repositories\BuyersRepository.cs" />
     <Compile Include="Repositories\ProductsRepository.cs" />
+    <Compile Include="Utilities\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\BuyersAnaliseViewModel.cs" />
     <Page Include="BuyerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,7 +83,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

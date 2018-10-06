@@ -94,11 +94,9 @@ namespace BakeryAnalysis.Helpers
                     var indexOfProduct = listOfProducts.FindIndex(x => x.NameOfProduct == buyer.Product[i]);
                     var productMaterialCost = listOfProducts[indexOfProduct].MaterialCost;
                     var profit = (buyer.Purchased[i] - buyer.Returned[i]) * buyer.Prise[i] - buyer.Purchased[i] * productMaterialCost;
-                    //Console.WriteLine($"{profit} = ( {Purchased[i]} - {Returned[i]} ) * {Prise[i]} - {Purchased[i]} * {productMaterialCost}");
 
                     sumOfProfits += profit;
                     buyer.Profits.Add(profit);
-
                 }
 
                 buyer.SumOfProfits = sumOfProfits;
