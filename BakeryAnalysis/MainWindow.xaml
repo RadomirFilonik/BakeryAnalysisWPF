@@ -12,7 +12,16 @@
             <StackPanel DockPanel.Dock="Right">
                 <Button x:Name="deleteButton" Click="DeleteButton_Click" Margin="10,0,10,0">Delete Buyer</Button>
             </StackPanel>
-            <ListBox Name="buyersListName"/>
+            <ListBox x:Name="BuyersList" ItemsSource="{Binding}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="666">
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding SumOfProfits}" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <!--<ListBox Name="buyersListPurched"/>-->
             <!--<ListBox Name="buyersListReturned"/>-->
         </DockPanel>
