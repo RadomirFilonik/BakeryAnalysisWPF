@@ -1,6 +1,7 @@
 ﻿using BakeryAnalysis.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,9 @@ namespace BakeryAnalysis.Repositories
 {
     public class BuyersRepository
     {
-        private List<Buyer> _allBuyers = new List<Buyer>();
+        private ObservableCollection<Buyer> _allBuyers = new ObservableCollection<Buyer>();
 
-        public IEnumerable<Buyer> GetBuyers()
+        public ObservableCollection<Buyer> GetBuyers()
         {
             return _allBuyers;
         }

@@ -3,6 +3,7 @@ using BakeryAnalysis.Models;
 using BakeryAnalysis.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace BakeryAnalysis
     {
         private static readonly ProductsRepository _productRepository = new ProductsRepository();
         private static readonly BuyersRepository _buyersRepository = new BuyersRepository();
+        private static ObservableCollection<Buyer> buyers = new ObservableCollection<Buyer>();
         private static readonly Geters _geters = new Geters();
 
         public MainWindow()
@@ -36,16 +38,18 @@ namespace BakeryAnalysis
             _productRepository.AddProducts(productsFromFile);
             var buyersFromFile = _geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", productsFromFile);
             _buyersRepository.AddBuyers(buyersFromFile);
+            
+            //var buyer = _buyersRepository.GetBuyers().FirstOrDefault();
+            buyers = _buyersRepository.GetBuyers();
 
-
-            var buyer = _buyersRepository.GetBuyers().FirstOrDefault();
-
-
-            buyersList.ItemsSource = _buyersRepository.GetBuyers().Select(x=> x.Name).ToList();
+            buyersListName.ItemsSource = buyers.Select(x=> x.Name).ToList();
+            buyersListPurched.ItemsSource = buyers.Select(x => x.Purchased.Sum()).ToList();
+            buyersListReturned.ItemsSource = buyers.Select(x => x.Returned.Sum()).ToList();
 
         }
 
-
-        
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

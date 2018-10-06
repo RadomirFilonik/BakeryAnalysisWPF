@@ -7,7 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox Name="buyersList" HorizontalAlignment="Left" Height="328" Margin="71,41,0,0" VerticalAlignment="Top" Width="259"/>
+
+        <DockPanel Margin="10">
+            <StackPanel DockPanel.Dock="Right">
+                <Button x:Name="deleteButton" Click="DeleteButton_Click" Margin="10,0,10,0">Delete Buyer</Button>
+            </StackPanel>
+            <ListBox Name="buyersListName"/>
+            <ListBox Name="buyersListPurched"/>
+            <ListBox Name="buyersListReturned"/>
+        </DockPanel>
 
     </Grid>
 </Window>
