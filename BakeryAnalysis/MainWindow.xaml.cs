@@ -53,13 +53,12 @@ namespace BakeryAnalysis
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            //var selectedBuyerName = buyersListName.SelectedItem.ToString();
-            //MessageBox.Show(selectedBuyerName.ToString());
+            var selectedBuyer = BuyersList.SelectedItem as Buyer;
 
-            //if (selectedBuyerName != null)
-            //{
-            //    buyersNameList.Remove(selectedBuyerName);
-            //}
+            if (selectedBuyer != null)
+            {
+                buyers.Remove(selectedBuyer);
+            }
         }
     }
 }
