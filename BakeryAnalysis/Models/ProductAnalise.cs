@@ -13,6 +13,5 @@ namespace BakeryAnalysis.Models
         public double SumOfReturned { get; set; }
         public double Sales { get; set; }
         public double SumOfProfits { get; set; }
-
     }
 }

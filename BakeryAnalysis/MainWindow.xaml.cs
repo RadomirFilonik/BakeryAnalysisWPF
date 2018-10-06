@@ -32,7 +32,8 @@ namespace BakeryAnalysis
             InitializeComponent();
 
             BuyersList.ItemsSource = viewModelLocator.BuyersAnaliseViewModel.AllBuyers;
-            
+            ProducktsList.ItemsSource = viewModelLocator.ProductsAnaliseViewModel.AllProductAnalise;
+
 
             //var buyer = _buyersRepository.GetBuyers().FirstOrDefault();
             //buyers = new ObservableCollection<Buyer>(buyersFromFile);
@@ -52,7 +53,7 @@ namespace BakeryAnalysis
 
             if (selectedBuyer != null)
             {
-                //ViewModelLocator.BuyersAnaliseViewModel.AllBuyers.Remove(selectedBuyer);
+                viewModelLocator.BuyersAnaliseViewModel.AllBuyers.Remove(selectedBuyer);
             }
         }
     }

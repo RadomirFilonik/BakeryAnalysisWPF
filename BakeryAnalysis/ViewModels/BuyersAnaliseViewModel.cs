@@ -11,15 +11,12 @@ namespace BakeryAnalysis.ViewModels
 {
     public class BuyersAnaliseViewModel
     {
-        private static readonly Geters _geters = new Geters();
+        
         public ObservableCollection<Buyer> AllBuyers = new ObservableCollection<Buyer>();
 
-        public BuyersAnaliseViewModel()
+        public BuyersAnaliseViewModel(List<Buyer> listOfBuyers)
         {
-            var productsFromFile = _geters.GetProductsFromFile("FilesForAnalise/Products.csv");
-            var buyersFromFile = _geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", productsFromFile);
-
-            foreach (var buyer in buyersFromFile)
+            foreach (var buyer in listOfBuyers)
             {
                 AllBuyers.Add(buyer);
             }

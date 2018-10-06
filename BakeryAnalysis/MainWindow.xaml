@@ -13,7 +13,7 @@
                     <StackPanel DockPanel.Dock="Right">
                         <Button x:Name="deleteButton" Click="DeleteButton_Click" Margin="10,0,10,0">Delete Buyer</Button>
                     </StackPanel>
-                    <ListBox x:Name="BuyersList" ItemsSource="{Binding AllBuyers}">
+                    <ListBox x:Name="BuyersList">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <local:BuyerUserControl></local:BuyerUserControl>
@@ -25,7 +25,11 @@
             <TabItem Header="Products analise">
                 <Grid>
                     <ListBox x:Name="ProducktsList">
-                        
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <local:ProductUserControl></local:ProductUserControl>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
                 </Grid>
             </TabItem>

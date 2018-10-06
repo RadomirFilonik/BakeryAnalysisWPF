@@ -61,10 +61,15 @@
     <Compile Include="Helpers\Geters.cs" />
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductAnalise.cs" />
+    <Compile Include="ProductUserControl.xaml.cs">
+      <DependentUpon>ProductUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\BuyersRepository.cs" />
     <Compile Include="Repositories\ProductsRepository.cs" />
     <Compile Include="Utilities\ViewModelLocator.cs" />
     <Compile Include="ViewModels\BuyersAnaliseViewModel.cs" />
+    <Compile Include="ViewModels\ProductsAnaliseViewModel.cs" />
     <Page Include="BuyerUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +86,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProductUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -10,11 +10,18 @@ namespace BakeryAnalysis.Utilities
 {
     public class ViewModelLocator
     {
+        private static readonly Geters _geters = new Geters();
         public BuyersAnaliseViewModel BuyersAnaliseViewModel;
+        public ProductsAnaliseViewModel ProductsAnaliseViewModel;
 
         public ViewModelLocator()
         {
-            BuyersAnaliseViewModel = new BuyersAnaliseViewModel();
+            var productsFromFile = _geters.GetProductsFromFile("FilesForAnalise/Products.csv");
+            var buyersFromFile = _geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", productsFromFile);
+
+            BuyersAnaliseViewModel = new BuyersAnaliseViewModel(buyersFromFile);
+            ProductsAnaliseViewModel = new ProductsAnaliseViewModel(buyersFromFile);
+
         }
         
     }
