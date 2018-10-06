@@ -27,7 +27,7 @@ namespace BakeryAnalysis
     {
         private static readonly ProductsRepository _productRepository = new ProductsRepository();
         private static readonly BuyersRepository _buyersRepository = new BuyersRepository();
-        private static ObservableCollection<Buyer> buyers = new ObservableCollection<Buyer>();
+        private static ObservableCollection<string> buyersNameList;
         private static readonly Geters _geters = new Geters();
 
         public MainWindow()
@@ -40,16 +40,25 @@ namespace BakeryAnalysis
             _buyersRepository.AddBuyers(buyersFromFile);
             
             //var buyer = _buyersRepository.GetBuyers().FirstOrDefault();
-            buyers = _buyersRepository.GetBuyers();
+            //buyers = new ObservableCollection<Buyer>(buyersFromFile);
+            //buyers.Remove(buyers.FirstOrDefault());
+            buyersNameList = new ObservableCollection<string>(buyersFromFile.Select(x => x.Name).ToList());
 
-            buyersListName.ItemsSource = buyers.Select(x=> x.Name).ToList();
-            buyersListPurched.ItemsSource = buyers.Select(x => x.Purchased.Sum()).ToList();
-            buyersListReturned.ItemsSource = buyers.Select(x => x.Returned.Sum()).ToList();
+            buyersListName.ItemsSource = buyersNameList;
+            //buyersListPurched.ItemsSource = buyers.Select(x => x.Purchased.Sum()).ToList();
+            //buyersListReturned.ItemsSource = buyers.Select(x => x.Returned.Sum()).ToList();
 
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            var selectedBuyerName = buyersListName.SelectedItem.ToString();
+            MessageBox.Show(selectedBuyerName.ToString());
+
+            if (selectedBuyerName != null)
+            {
+                buyersNameList.Remove(selectedBuyerName);
+            }
         }
     }
 }

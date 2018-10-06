@@ -10,9 +10,9 @@ namespace BakeryAnalysis.Repositories
 {
     public class BuyersRepository
     {
-        private ObservableCollection<Buyer> _allBuyers = new ObservableCollection<Buyer>();
+        private List<Buyer> _allBuyers = new List<Buyer>();
 
-        public ObservableCollection<Buyer> GetBuyers()
+        public List<Buyer> GetBuyers()
         {
             return _allBuyers;
         }
