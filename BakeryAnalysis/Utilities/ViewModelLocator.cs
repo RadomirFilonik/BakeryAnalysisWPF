@@ -8,21 +8,12 @@ using System.Threading.Tasks;
 
 namespace BakeryAnalysis.Utilities
 {
-    public class ViewModelLocator
+    public static class ViewModelLocator
     {
-        private static readonly Geters _geters = new Geters();
-        public BuyersAnaliseViewModel BuyersAnaliseViewModel;
-        public ProductsAnaliseViewModel ProductsAnaliseViewModel;
-
-        public ViewModelLocator()
-        {
-            var productsFromFile = _geters.GetProductsFromFile("FilesForAnalise/Products.csv");
-            var buyersFromFile = _geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", productsFromFile);
-
-            BuyersAnaliseViewModel = new BuyersAnaliseViewModel(buyersFromFile);
-            ProductsAnaliseViewModel = new ProductsAnaliseViewModel(buyersFromFile);
-
-        }
+        static Geters _geters = new Geters();
+        public static BuyersAnaliseViewModel BuyersAnaliseViewModel = new BuyersAnaliseViewModel(_geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", _geters.GetProductsFromFile("FilesForAnalise/Products.csv")));
+        public static ProductsAnaliseViewModel ProductsAnaliseViewModel = new ProductsAnaliseViewModel(_geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", _geters.GetProductsFromFile("FilesForAnalise/Products.csv")));
+        public static BuyerDetailViewModel BuyerDetailViewModel;
         
     }
 }
