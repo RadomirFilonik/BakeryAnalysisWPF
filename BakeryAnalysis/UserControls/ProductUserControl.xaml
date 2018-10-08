@@ -14,7 +14,7 @@
             <ColumnDefinition Width="150*"/>
             <ColumnDefinition Width="150*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock  Text="{Binding NameOfProduct}" Grid.Column="0" Background="Aqua" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" TextAlignment="Center" Height="16" Margin="10,14,10,15"/>
+        <TextBlock Text="{Binding NameOfProduct}" Grid.Column="0" Background="Aqua" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" TextAlignment="Center" Height="16" Margin="10,14,10,15"/>
         <TextBlock Text="{Binding SumOfPurchased}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" TextAlignment="Center" Height="16" Margin="10,14,10,15" Grid.Column="1"/>
         <TextBlock Text="{Binding SumOfReturned}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" TextAlignment="Center" Height="16" Margin="10,14,10,15"/>
         <TextBlock Text="{Binding Sales}" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" TextAlignment="Center" Height="16" Margin="10,14,10,15"/>

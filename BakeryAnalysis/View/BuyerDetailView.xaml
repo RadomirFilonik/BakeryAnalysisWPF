@@ -3,34 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BakeryAnalysis.View"
+        xmlns:local="clr-namespace:BakeryAnalysis"
         mc:Ignorable="d"
-        Title="BuyerDetailView" Height="450" Width="800">
+        Title="BuyerDetailView" Height="450" Width="900">
     <Grid>
         <DockPanel>
-            <StackPanel DockPanel.Dock="Top">
-                <Label>Buer Name:</Label>
+            <StackPanel DockPanel.Dock="Top" Margin="42,0,0,0">
+                <TextBlock>Buyer name:</TextBlock>
+                <TextBlock x:Name="BuyerName" FontSize="24" FontWeight="Bold"></TextBlock>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200" />
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Product Name"/>
-                    <TextBlock Grid.Column="1" Text="Pursched"/>
-                    <TextBlock Grid.Column="2" Text="Returned"/>
-                    <TextBlock Grid.Column="3" Text="Sales"/>
-                    <TextBlock Grid.Column="4" Text="Profit"/>
+                    <TextBlock Grid.Column="0" Text="Product Name" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Column="1" Text="Pursched" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Column="2" Text="Returned" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Column="3" Text="Sales" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Column="4" Text="Profit" Grid.RowSpan="2"/>
                 </Grid>
             </StackPanel>
-            <StackPanel DockPanel.Dock="Right" Margin="10">
-                <Button Margin="10,0,10,0">Exit</Button>
+            <StackPanel DockPanel.Dock="Right" Margin="10,0,10,0">
+                <Button Margin="10,0,10,0" Width="80">Exit</Button>
             </StackPanel>
-            <ListBox Margin="10">
-                
+            <ListBox x:Name="ProductsList" DockPanel.Dock="Left"  Width="750">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <local:ProductUserControl></local:ProductUserControl>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
+
         </DockPanel>
     </Grid>
 </Window>
