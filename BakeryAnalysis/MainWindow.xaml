@@ -11,7 +11,8 @@
             <TabItem x:Name="BuyersAnalise" Header="Buyers analise">
                 <DockPanel Margin="10">
                     <StackPanel DockPanel.Dock="Right">
-                        <Button x:Name="deleteButton" Click="DeleteButton_Click" Margin="10,0,10,0">Delete Buyer</Button>
+                        <Button x:Name="deleteButton" Click="deleteButton_Click" Margin="10,0,10,0">Delete Buyer</Button>
+                        <Button x:Name="selectButton" Click="selectButton_Click" Margin="10">Detail view</Button>
                     </StackPanel>
                     <ListBox x:Name="BuyersList">
                         <ListBox.ItemTemplate>

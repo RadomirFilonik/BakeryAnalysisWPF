@@ -26,13 +26,12 @@ namespace BakeryAnalysis
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ViewModelLocator viewModelLocator = new ViewModelLocator();
         public MainWindow()
         {
             InitializeComponent();
 
-            BuyersList.ItemsSource = viewModelLocator.BuyersAnaliseViewModel.AllBuyers;
-            ProducktsList.ItemsSource = viewModelLocator.ProductsAnaliseViewModel.AllProductAnalise;
+            BuyersList.ItemsSource = ViewModelLocator.BuyersAnaliseViewModel.AllBuyers;
+            ProducktsList.ItemsSource = ViewModelLocator.ProductsAnaliseViewModel.AllProductAnalise;
 
 
             //var buyer = _buyersRepository.GetBuyers().FirstOrDefault();
@@ -47,14 +46,19 @@ namespace BakeryAnalysis
 
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedBuyer = BuyersList.SelectedItem as Buyer;
 
             if (selectedBuyer != null)
             {
-                viewModelLocator.BuyersAnaliseViewModel.AllBuyers.Remove(selectedBuyer);
+                ViewModelLocator.BuyersAnaliseViewModel.AllBuyers.Remove(selectedBuyer);
             }
+        }
+
+        private void selectButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
