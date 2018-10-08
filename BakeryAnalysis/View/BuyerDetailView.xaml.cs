@@ -20,7 +20,6 @@ namespace BakeryAnalysis.View
     /// </summary>
     public partial class BuyerDetailView : Window
     {
-
         public BuyerDetailView()
         {
             InitializeComponent();

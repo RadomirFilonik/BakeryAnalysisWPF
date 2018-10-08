@@ -65,8 +65,6 @@
     <Compile Include="UserControls\ProductUserControl.xaml.cs">
       <DependentUpon>ProductUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\BuyersRepository.cs" />
-    <Compile Include="Repositories\ProductsRepository.cs" />
     <Compile Include="Utilities\ViewModelLocator.cs" />
     <Compile Include="ViewModels\BuyerDetailViewModel.cs" />
     <Compile Include="ViewModels\BuyersAnaliseViewModel.cs" />

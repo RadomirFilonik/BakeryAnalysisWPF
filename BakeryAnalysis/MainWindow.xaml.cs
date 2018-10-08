@@ -1,7 +1,7 @@
 ﻿using BakeryAnalysis.Helpers;
 using BakeryAnalysis.Models;
-using BakeryAnalysis.Repositories;
 using BakeryAnalysis.Utilities;
+using BakeryAnalysis.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,17 +33,6 @@ namespace BakeryAnalysis
             BuyersList.ItemsSource = ViewModelLocator.BuyersAnaliseViewModel.AllBuyers;
             ProducktsList.ItemsSource = ViewModelLocator.ProductsAnaliseViewModel.AllProductAnalise;
 
-
-            //var buyer = _buyersRepository.GetBuyers().FirstOrDefault();
-            //buyers = new ObservableCollection<Buyer>(buyersFromFile);
-            //buyers.Remove(buyers.FirstOrDefault());
-
-            //buyers = new ObservableCollection<Buyer>(buyersFromFile.Where(x => x.SumOfProfits != 0).ToList());
-            //DataContext = buyers;
-
-            //buyersListPurched.ItemsSource = buyers.Select(x => x.Purchased.Sum()).ToList();
-            //buyersListReturned.ItemsSource = buyers.Select(x => x.Returned.Sum()).ToList();
-
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
@@ -58,7 +47,14 @@ namespace BakeryAnalysis
 
         private void selectButton_Click(object sender, RoutedEventArgs e)
         {
+            var selectedBuyer = BuyersList.SelectedItem as Buyer;
 
+            if (selectedBuyer != null)
+            {
+                ViewModelLocator.SetBuyerToBuyerDetailViewModel(selectedBuyer);
+                var _buyerDetailView = new BuyerDetailView();
+                _buyerDetailView.ShowDialog();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BakeryAnalysis.Helpers;
+using BakeryAnalysis.Models;
 using BakeryAnalysis.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace BakeryAnalysis.Utilities
         public static BuyersAnaliseViewModel BuyersAnaliseViewModel = new BuyersAnaliseViewModel(_geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", _geters.GetProductsFromFile("FilesForAnalise/Products.csv")));
         public static ProductsAnaliseViewModel ProductsAnaliseViewModel = new ProductsAnaliseViewModel(_geters.GetBuyersFromFileAndMapingItToBuyers("FilesForAnalise/Karol.csv", _geters.GetProductsFromFile("FilesForAnalise/Products.csv")));
         public static BuyerDetailViewModel BuyerDetailViewModel;
+
+        public static void SetBuyerToBuyerDetailViewModel(Buyer buyer)
+        {
+            BuyerDetailViewModel = new BuyerDetailViewModel(buyer);
+        }
         
     }
 }

@@ -8,6 +8,23 @@
         Title="BuyerDetailView" Height="450" Width="800">
     <Grid>
         <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <Label>Buer Name:</Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Product Name"/>
+                    <TextBlock Grid.Column="1" Text="Pursched"/>
+                    <TextBlock Grid.Column="2" Text="Returned"/>
+                    <TextBlock Grid.Column="3" Text="Sales"/>
+                    <TextBlock Grid.Column="4" Text="Profit"/>
+                </Grid>
+            </StackPanel>
             <StackPanel DockPanel.Dock="Right" Margin="10">
                 <Button Margin="10,0,10,0">Exit</Button>
             </StackPanel>
