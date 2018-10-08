@@ -14,21 +14,32 @@ namespace BakeryAnalysis.ViewModels
 
         public ProductsAnaliseViewModel(List<Buyer> listOfBuyers)
         {
-            var countOfProduct = listOfBuyers.FirstOrDefault().Product.Count();
+            var ListOfProducts = listOfBuyers.FirstOrDefault().Product;
+            var countOfProducts = ListOfProducts.Count();
+            var countOfBuyers = listOfBuyers.Count();
 
-            var sumOfPurchased = listOfBuyers.Select(x => x.Purchased.Sum()).ToArray();
-            var sumOfReturned = listOfBuyers.Select(x => x.Returned.Sum()).ToArray();
-            var SumOfProfits = listOfBuyers.Select(x => x.Profits.Sum()).ToArray();
-
-            for (int i = 0; i < countOfProduct; i++)
+            for (int i = 0; i < countOfProducts; i++)
             {
+                double sumOfPrusched = 0;
+                double sumOfPReturned = 0;
+                double sumOfProfits = 0;
+                var nameOfProduct = ListOfProducts[i];
+
+                for (int j = 0; j < countOfBuyers; j++)
+                {
+                    sumOfPrusched += listOfBuyers[j].Purchased[i];
+                    sumOfPReturned += listOfBuyers[j].Returned[i];
+                    sumOfProfits += listOfBuyers[j].Profits[i];
+                }
+                double sales = sumOfPrusched - sumOfPReturned;
+
                 var productAnalise = new ProductAnalise()
                 {
-                    NameOfProduct = listOfBuyers.FirstOrDefault().Product[i],
-                    SumOfPurchased = sumOfPurchased[i],
-                    SumOfReturned = sumOfReturned[i],
-                    SumOfProfits = SumOfProfits[i],
-                    Sales = sumOfPurchased[i] - sumOfReturned[i]
+                    NameOfProduct = nameOfProduct,
+                    SumOfPurchased = sumOfPrusched,
+                    SumOfReturned = sumOfPReturned,
+                    Sales = sales,
+                    SumOfProfits = sumOfProfits
                 };
 
                 AllProductAnalise.Add(productAnalise);
