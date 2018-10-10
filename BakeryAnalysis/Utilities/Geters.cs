@@ -17,8 +17,8 @@ namespace BakeryAnalysis.Utilities
             using (var reader = new StreamReader(adress))
             {
                 var file = reader.ReadToEnd();
-                var lines = file.Split(new char[] { '\n' });
-                var count = lines.Count();
+                var lines = file.Split(new char[] { '\n' }).ToList();
+                lines = RemoveEmptyLinesOnEndOfFile(lines);
 
                 var firstLineSplited = lines[1].Split(';');
 
@@ -32,7 +32,7 @@ namespace BakeryAnalysis.Utilities
                     listOfBuyers.Add(buyer);
                 }
 
-                var linesWithData = lines.Skip(3);
+                var linesWithData = lines.Skip(3).ToList();
 
                 foreach (var line in linesWithData)
                 {
@@ -111,8 +111,10 @@ namespace BakeryAnalysis.Utilities
             using (var reader = new StreamReader(adress))
             {
                 var file = reader.ReadToEnd();
-                var lines = file.Split(new char[] { '\n' }).Skip(1);
-                
+                var lines = file.Split(new char[] { '\n' }).Skip(1).ToList();
+                lines = RemoveEmptyLinesOnEndOfFile(lines);
+
+
                 foreach (var line in lines)
                 {
                     var properties = line.Split(';');
@@ -138,6 +140,30 @@ namespace BakeryAnalysis.Utilities
             }
 
             return listOfProducts;
+        }
+
+        private List<string> RemoveEmptyLinesOnEndOfFile(List<string> linesWithData)
+        {
+            linesWithData.Reverse();
+            var numberOfLines = linesWithData.Count();
+            int numberOfEmptyLines = 0;
+
+            for (int i = 0; i < numberOfLines; i++)
+            {
+                var line = linesWithData[i].Split(';');
+                if(line[0] == string.Empty || line[0] == "\r" || line[0] == "\n")
+                {
+                    numberOfEmptyLines++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            linesWithData = linesWithData.Skip(numberOfEmptyLines).ToList();
+            linesWithData.Reverse();
+            return linesWithData;
         }
     }
 }
