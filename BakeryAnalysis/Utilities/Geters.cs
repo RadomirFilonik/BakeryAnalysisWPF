@@ -34,6 +34,8 @@ namespace BakeryAnalysis.Utilities
 
                 var linesWithData = lines.Skip(3).ToList();
 
+
+
                 foreach (var line in linesWithData)
                 {
                     var columnsInLine = line.Split(';');
@@ -48,6 +50,7 @@ namespace BakeryAnalysis.Utilities
 
                         buyer.Product.Add(productName);
                         currentString = columnsInLine[i * 4 + 1];
+                        currentString = RemoveQuotationMarks(currentString);
                         if (currentString == "")
                         {
                             purchased = 0;
@@ -58,6 +61,7 @@ namespace BakeryAnalysis.Utilities
                         }
                         buyer.Purchased.Add(purchased);
                         currentString = columnsInLine[i * 4 + 2];
+                        currentString = RemoveQuotationMarks(currentString);
                         if (currentString == "")
                         {
                             returned = 0;
@@ -68,6 +72,7 @@ namespace BakeryAnalysis.Utilities
                         }
                         buyer.Returned.Add(returned);
                         currentString = columnsInLine[i * 4 + 3];
+                        currentString = RemoveQuotationMarks(currentString);
                         if (currentString == "")
                         {
                             prise = 0;
@@ -164,6 +169,12 @@ namespace BakeryAnalysis.Utilities
             linesWithData = linesWithData.Skip(numberOfEmptyLines).ToList();
             linesWithData.Reverse();
             return linesWithData;
+        }
+
+        private string RemoveQuotationMarks(string currentString)
+        {
+            return currentString.Replace("\"", string.Empty);
+
         }
     }
 }
