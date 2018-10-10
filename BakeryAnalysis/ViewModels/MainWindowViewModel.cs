@@ -8,11 +8,27 @@ using System.Threading.Tasks;
 
 namespace BakeryAnalysis.ViewModels
 {
-    public class ProductsAnaliseViewModel
+    public class MainWindowViewModel
     {
         public ObservableCollection<ProductAnalise> AllProductAnalise = new ObservableCollection<ProductAnalise>();
+        public ObservableCollection<Buyer> AllBuyers = new ObservableCollection<Buyer>();
 
-        public ProductsAnaliseViewModel(List<Buyer> listOfBuyers)
+        public MainWindowViewModel(List<Buyer> listOfBuyers)
+        {
+            BuyersAnaliseViewModel(listOfBuyers);
+            ProductsAnaliseViewModel(listOfBuyers);
+        }
+
+        public void BuyersAnaliseViewModel(List<Buyer> listOfBuyers)
+        {
+            foreach (var buyer in listOfBuyers)
+            {
+                AllBuyers.Add(buyer);
+            }
+        }
+
+
+        public void ProductsAnaliseViewModel(List<Buyer> listOfBuyers)
         {
             var ListOfProducts = listOfBuyers.FirstOrDefault().Product;
             var countOfProducts = ListOfProducts.Count();

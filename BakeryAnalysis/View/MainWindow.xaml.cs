@@ -30,8 +30,8 @@ namespace BakeryAnalysis
         {
             InitializeComponent();
             
-            BuyersList.ItemsSource = ViewModelLocator.BuyersAnaliseViewModel.AllBuyers;
-            ProducktsList.ItemsSource = ViewModelLocator.ProductsAnaliseViewModel.AllProductAnalise;
+            BuyersList.ItemsSource = ViewModelLocator.MainWindowViewModel.AllBuyers;
+            ProducktsList.ItemsSource = ViewModelLocator.MainWindowViewModel.AllProductAnalise;
 
         }
 
@@ -41,7 +41,7 @@ namespace BakeryAnalysis
 
             if (selectedBuyer != null)
             {
-                ViewModelLocator.BuyersAnaliseViewModel.AllBuyers.Remove(selectedBuyer);
+                ViewModelLocator.MainWindowViewModel.AllBuyers.Remove(selectedBuyer);
             }
         }
 
