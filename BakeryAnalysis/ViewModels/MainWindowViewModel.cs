@@ -10,11 +10,13 @@ namespace BakeryAnalysis.ViewModels
 {
     public class MainWindowViewModel
     {
-        public ObservableCollection<ProductAnalise> AllProductAnalise = new ObservableCollection<ProductAnalise>();
-        public ObservableCollection<Buyer> AllBuyers = new ObservableCollection<Buyer>();
+        public ObservableCollection<ProductAnalise> AllProductAnalise { get; set; }
+        public ObservableCollection<Buyer> AllBuyers { get; set; }
 
         public MainWindowViewModel(List<Buyer> listOfBuyers)
         {
+            AllProductAnalise = new ObservableCollection<ProductAnalise>();
+            AllBuyers = new ObservableCollection<Buyer>();
             BuyersAnaliseViewModel(listOfBuyers);
             ProductsAnaliseViewModel(listOfBuyers);
         }

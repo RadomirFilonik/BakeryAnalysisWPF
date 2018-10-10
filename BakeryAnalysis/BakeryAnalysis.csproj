@@ -67,9 +67,7 @@
     </Compile>
     <Compile Include="Utilities\ViewModelLocator.cs" />
     <Compile Include="ViewModels\BuyerDetailViewModel.cs" />
-    <Compile Include="ViewModels\BuyersAnaliseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\ProductsAnaliseViewModel.cs" />
     <Compile Include="View\BuyerDetailView.xaml.cs">
       <DependentUpon>BuyerDetailView.xaml</DependentUpon>
     </Compile>

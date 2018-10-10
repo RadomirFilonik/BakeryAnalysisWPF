@@ -29,9 +29,8 @@ namespace BakeryAnalysis
         public MainWindow()
         {
             InitializeComponent();
-            
-            BuyersList.ItemsSource = ViewModelLocator.MainWindowViewModel.AllBuyers;
-            ProducktsList.ItemsSource = ViewModelLocator.MainWindowViewModel.AllProductAnalise;
+
+            DataContext = ViewModelLocator.MainWindowViewModel;
 
         }
 

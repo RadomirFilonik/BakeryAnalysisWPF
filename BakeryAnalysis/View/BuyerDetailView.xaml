@@ -10,7 +10,7 @@
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Margin="42,0,0,0">
                 <TextBlock>Buyer name:</TextBlock>
-                <TextBlock x:Name="BuyerName" FontSize="24" FontWeight="Bold"></TextBlock>
+                <TextBlock x:Name="BuyerName" Text="{Binding SelectedBuyerName}" FontSize="24" FontWeight="Bold"></TextBlock>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150" />
@@ -29,7 +29,7 @@
             <StackPanel DockPanel.Dock="Right" Margin="10,0,10,0">
                 <Button Margin="10,0,10,0" Width="80">Exit</Button>
             </StackPanel>
-            <ListBox x:Name="ProductsList" DockPanel.Dock="Left"  Width="750">
+            <ListBox x:Name="ProductsList" ItemsSource="{Binding Produkcts}" DockPanel.Dock="Left"  Width="750">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <local:ProductUserControl></local:ProductUserControl>
