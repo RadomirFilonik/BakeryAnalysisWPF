@@ -58,7 +58,7 @@
     <Compile Include="UserControls\BuyerUserControl.xaml.cs">
       <DependentUpon>BuyerUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Geters.cs" />
+    <Compile Include="Utilities\Geters.cs" />
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductAnalise.cs" />
@@ -128,6 +128,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
