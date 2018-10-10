@@ -29,7 +29,7 @@ namespace BakeryAnalysis
         public MainWindow()
         {
             InitializeComponent();
-
+            
             BuyersList.ItemsSource = ViewModelLocator.BuyersAnaliseViewModel.AllBuyers;
             ProducktsList.ItemsSource = ViewModelLocator.ProductsAnaliseViewModel.AllProductAnalise;
 
@@ -55,6 +55,11 @@ namespace BakeryAnalysis
                 var _buyerDetailView = new BuyerDetailView();
                 _buyerDetailView.ShowDialog();
             }
+        }
+
+        private void BuyerUserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            selectButton_Click(sender, e);
         }
     }
 }

@@ -17,7 +17,7 @@
                     <ListBox x:Name="BuyersList">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <local:BuyerUserControl></local:BuyerUserControl>
+                                <local:BuyerUserControl MouseDoubleClick="BuyerUserControl_MouseDoubleClick"></local:BuyerUserControl>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
