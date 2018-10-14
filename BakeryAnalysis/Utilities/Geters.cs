@@ -1,6 +1,7 @@
 ﻿using BakeryAnalysis.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,134 +15,167 @@ namespace BakeryAnalysis.Utilities
         {
             var listOfBuyers = new List<Buyer>();
 
-            using (var reader = new StreamReader(adress))
+            if(adress != "")
             {
-                var file = reader.ReadToEnd();
-                var lines = file.Split(new char[] { '\n' }).ToList();
-                lines = RemoveEmptyLinesOnEndOfFile(lines);
-
-                var firstLineSplited = lines[1].Split(';');
-
-                var HowManyBuyers = firstLineSplited.Count(x => x != "") - 1;
-                var NamesOfBuyers = firstLineSplited.Where(x => x != "").ToArray();
-
-                for (int i = 0; i < HowManyBuyers; i++)
+                using (var reader = new StreamReader(adress, Encoding.UTF8))
                 {
-                    var buyer = new Buyer();
-                    buyer.Name = NamesOfBuyers[i];
-                    listOfBuyers.Add(buyer);
-                }
+                    var file = reader.ReadToEnd();
+                    var lines = file.Split(new char[] { '\n' }).ToList();
+                    lines = RemoveEmptyLinesOnEndOfFile(lines);
 
-                var linesWithData = lines.Skip(3).ToList();
+                    var firstLineSplited = lines[1].Split(';');
 
+                    var HowManyBuyers = firstLineSplited.Count(x => x != "") - 1;
+                    var NamesOfBuyers = firstLineSplited.Where(x => x != "").ToArray();
 
-
-                foreach (var line in linesWithData)
-                {
-                    var columnsInLine = line.Split(';');
                     for (int i = 0; i < HowManyBuyers; i++)
                     {
-                        var buyer = listOfBuyers[i];
-                        var productName = columnsInLine[0];
-                        double purchased;
-                        double returned;
-                        double prise;
-                        string currentString;
+                        var buyer = new Buyer();
+                        buyer.Name = NamesOfBuyers[i];
+                        listOfBuyers.Add(buyer);
+                    }
 
-                        buyer.Product.Add(productName);
-                        currentString = columnsInLine[i * 4 + 1];
-                        currentString = RemoveQuotationMarks(currentString);
-                        if (currentString == "")
+                    var linesWithData = lines.Skip(3).ToList();
+
+
+                    foreach (var line in linesWithData)
+                    {
+                        var columnsInLine = line.Split(';');
+                        for (int i = 0; i < HowManyBuyers; i++)
                         {
-                            purchased = 0;
+                            var buyer = listOfBuyers[i];
+                            var productName = columnsInLine[0];
+                            double purchased;
+                            double returned;
+                            double prise;
+                            string currentString;
+
+                            buyer.Product.Add(productName);
+                            currentString = columnsInLine[i * 4 + 1];
+                            currentString = RemoveQuotationMarks(currentString);
+                            if (currentString == "")
+                            {
+                                purchased = 0;
+                            }
+                            else
+                            {
+                                purchased = double.Parse(currentString);
+                            }
+                            buyer.Purchased.Add(purchased);
+                            currentString = columnsInLine[i * 4 + 2];
+                            currentString = RemoveQuotationMarks(currentString);
+                            if (currentString == "")
+                            {
+                                returned = 0;
+                            }
+                            else
+                            {
+                                returned = double.Parse(currentString);
+                            }
+                            buyer.Returned.Add(returned);
+                            currentString = columnsInLine[i * 4 + 3];
+                            currentString = RemoveQuotationMarks(currentString);
+                            if (currentString == "")
+                            {
+                                prise = 0;
+                            }
+                            else
+                            {
+                                prise = double.Parse(currentString);
+                            }
+                            buyer.Prise.Add(prise);
                         }
-                        else
+                    }
+
+                }
+
+                List<Product> listOfActiveProducts = new List<Product>();
+                int numbersOfActiveProducts = listOfBuyers.FirstOrDefault().Product.Count();
+                for (int i = 0; i < numbersOfActiveProducts; i++)
+                {
+                    var listOfProductCount = listOfProducts.Count();
+
+                    for (int j = 0; j < listOfProductCount; j++)
+                    {
+                        if (listOfProducts[j].NameOfProduct == listOfBuyers.FirstOrDefault().Product[i])
                         {
-                            purchased = double.Parse(currentString);
+                            listOfActiveProducts.Add(listOfProducts[j]);
+                            break;
                         }
-                        buyer.Purchased.Add(purchased);
-                        currentString = columnsInLine[i * 4 + 2];
-                        currentString = RemoveQuotationMarks(currentString);
-                        if (currentString == "")
-                        {
-                            returned = 0;
-                        }
-                        else
-                        {
-                            returned = double.Parse(currentString);
-                        }
-                        buyer.Returned.Add(returned);
-                        currentString = columnsInLine[i * 4 + 3];
-                        currentString = RemoveQuotationMarks(currentString);
-                        if (currentString == "")
-                        {
-                            prise = 0;
-                        }
-                        else
-                        {
-                            prise = double.Parse(currentString);
-                        }
-                        buyer.Prise.Add(prise);
                     }
                 }
 
-            }
 
-            foreach (var buyer in listOfBuyers)
-            {
-                var procuctCount = buyer.Product.Count();
-                double sumOfProfits = 0;
-
-
-                for (int i = 0; i < procuctCount; i++)
+                foreach (var buyer in listOfBuyers)
                 {
+                    var productCount = buyer.Product.Count();
+                    double sumOfProfits = 0;
 
-                    var indexOfProduct = listOfProducts.FindIndex(x => x.NameOfProduct == buyer.Product[i]);
-                    var productMaterialCost = listOfProducts[indexOfProduct].MaterialCost;
-                    var profit = (buyer.Purchased[i] - buyer.Returned[i]) * buyer.Prise[i] - buyer.Purchased[i] * productMaterialCost;
+                    for (int i = 0; i < productCount; i++)
+                    {
+                        double productMaterialCost;
+                        
+                        if (listOfProducts.Count() != 0)
+                        {
+                            productMaterialCost = listOfActiveProducts[i].MaterialCost;
+                        }
+                        else
+                        {
+                            productMaterialCost = 0;
+                        }
 
-                    sumOfProfits += profit;
-                    buyer.Profits.Add(profit);
+
+                        var profit = (buyer.Purchased[i] - buyer.Returned[i]) * buyer.Prise[i] - buyer.Purchased[i] * productMaterialCost;
+
+                        sumOfProfits += profit;
+                        buyer.Profits.Add(profit);
+                        
+                    }
+                    buyer.SumOfProfits = sumOfProfits;
                 }
 
-                buyer.SumOfProfits = sumOfProfits;
+
             }
 
             return listOfBuyers;
         }
+        
 
         public List<Product> GetProductsFromFile(string adress)
         {
             var listOfProducts = new List<Product>();
-            using (var reader = new StreamReader(adress))
+            if (adress != "")
             {
-                var file = reader.ReadToEnd();
-                var lines = file.Split(new char[] { '\n' }).Skip(1).ToList();
-                lines = RemoveEmptyLinesOnEndOfFile(lines);
-
-
-                foreach (var line in lines)
+                using (var reader = new StreamReader(adress))
                 {
-                    var properties = line.Split(';');
-                    var newProduct = new Product()
-                    {
-                        NameOfProduct = properties[0],
-                        Media = properties[2],
-                        Modifier = properties[3]
-                    };
+                    var file = reader.ReadToEnd();
+                    var lines = file.Split(new char[] { '\n' }).Skip(1).ToList();
+                    lines = RemoveEmptyLinesOnEndOfFile(lines);
 
-                    if (properties[1] == "")
+
+                    foreach (var line in lines)
                     {
-                        newProduct.MaterialCost = 0;
-                    }
-                    else
-                    {
-                        newProduct.MaterialCost = double.Parse(properties[1]);
+                        var properties = line.Split(';');
+                        var newProduct = new Product()
+                        {
+                            NameOfProduct = properties[0],
+                            Media = properties[2],
+                            Modifier = properties[3]
+                        };
+
+                        if (properties[1] == "")
+                        {
+                            newProduct.MaterialCost = 0;
+                        }
+                        else
+                        {
+                            newProduct.MaterialCost = double.Parse(properties[1]);
+                        }
+
+                        listOfProducts.Add(newProduct);
                     }
 
-                    listOfProducts.Add(newProduct);
                 }
-                
             }
 
             return listOfProducts;
