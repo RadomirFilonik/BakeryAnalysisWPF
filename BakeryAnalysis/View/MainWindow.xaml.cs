@@ -1,6 +1,7 @@
 ﻿using BakeryAnalysis.Models;
 using BakeryAnalysis.Utilities;
 using BakeryAnalysis.View;
+using BakeryAnalysis.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -41,6 +42,10 @@ namespace BakeryAnalysis
             if (selectedBuyer != null)
             {
                 ViewModelLocator.MainWindowViewModel.AllBuyers.Remove(selectedBuyer);
+
+                var newListOfBuyers = ViewModelLocator.MainWindowViewModel.AllBuyers.ToList();
+                
+                ViewModelLocator.MainWindowViewModel.RecreateAllProductAnalise(newListOfBuyers);
             }
         }
 

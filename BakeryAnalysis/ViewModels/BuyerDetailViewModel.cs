@@ -10,12 +10,12 @@ namespace BakeryAnalysis.ViewModels
 {
     public class BuyerDetailViewModel
     {
-        public ObservableCollection<ProductAnalise> Produkcts { get; set; }
+        public ObservableCollection<ProductsAnalise> Produkcts { get; set; }
         public string SelectedBuyerName { get; set; }
 
         public BuyerDetailViewModel(Buyer selectedBuyer)
         {
-            Produkcts = new ObservableCollection<ProductAnalise>();
+            Produkcts = new ObservableCollection<ProductsAnalise>();
             SelectedBuyerName = selectedBuyer.Name;
             var countOfProducts = selectedBuyer.Product.Count();
 
@@ -27,7 +27,7 @@ namespace BakeryAnalysis.ViewModels
                 }
                 else
                 {
-                    var newProduct = new ProductAnalise()
+                    var newProduct = new ProductsAnalise()
                     {
                         NameOfProduct = selectedBuyer.Product[i],
                         SumOfPurchased = selectedBuyer.Purchased[i],

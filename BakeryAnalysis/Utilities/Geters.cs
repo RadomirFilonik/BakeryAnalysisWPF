@@ -15,18 +15,18 @@ namespace BakeryAnalysis.Utilities
         {
             var listOfBuyers = new List<Buyer>();
 
-            if(adress != "")
+            if (adress != string.Empty)
             {
-                using (var reader = new StreamReader(adress, Encoding.UTF8))
+                using (var reader = new StreamReader(adress))
                 {
                     var file = reader.ReadToEnd();
                     var lines = file.Split(new char[] { '\n' }).ToList();
                     lines = RemoveEmptyLinesOnEndOfFile(lines);
 
-                    var firstLineSplited = lines[1].Split(';');
+                    var buyersNameLineSplited = lines[1].Split(';');
 
-                    var HowManyBuyers = firstLineSplited.Count(x => x != "") - 1;
-                    var NamesOfBuyers = firstLineSplited.Where(x => x != "").ToArray();
+                    var HowManyBuyers = buyersNameLineSplited.Count(x => x != "") - 1;
+                    var NamesOfBuyers = buyersNameLineSplited.Where(x => x != "").ToArray();
 
                     for (int i = 0; i < HowManyBuyers; i++)
                     {
@@ -93,9 +93,7 @@ namespace BakeryAnalysis.Utilities
                 int numbersOfActiveProducts = listOfBuyers.FirstOrDefault().Product.Count();
                 for (int i = 0; i < numbersOfActiveProducts; i++)
                 {
-                    var listOfProductCount = listOfProducts.Count();
-
-                    for (int j = 0; j < listOfProductCount; j++)
+                    for (int j = 0; j < listOfProducts.Count(); j++)
                     {
                         if (listOfProducts[j].NameOfProduct == listOfBuyers.FirstOrDefault().Product[i])
                         {

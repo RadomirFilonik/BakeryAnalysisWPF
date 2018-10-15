@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ProductDetailAnalise.cs" />
     <Compile Include="UserControls\BuyerUserControl.xaml.cs">
       <DependentUpon>BuyerUserControl.xaml</DependentUpon>
     </Compile>
@@ -62,7 +63,7 @@
     <Compile Include="Utilities\Geters.cs" />
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductAnalise.cs" />
+    <Compile Include="Models\ProductsAnalise.cs" />
     <Compile Include="UserControls\ProductUserControl.xaml.cs">
       <DependentUpon>ProductUserControl.xaml</DependentUpon>
     </Compile>
@@ -70,9 +71,13 @@
     <Compile Include="ViewModels\BuyerDetailViewModel.cs" />
     <Compile Include="ViewModels\BuyersAnaliseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetailAnaliseViewModel.cs" />
     <Compile Include="ViewModels\ProductsAnaliseViewModel.cs" />
     <Compile Include="View\BuyerDetailView.xaml.cs">
       <DependentUpon>BuyerDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductDetailAnaliseView.xaml.cs">
+      <DependentUpon>ProductDetailAnaliseView.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\BuyerUserControl.xaml">
       <SubType>Designer</SubType>
@@ -95,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\BuyerDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductDetailAnaliseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
