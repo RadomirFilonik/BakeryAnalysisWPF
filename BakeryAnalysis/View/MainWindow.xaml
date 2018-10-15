@@ -19,8 +19,8 @@
                 <DockPanel Margin="10">
                         <StackPanel DockPanel.Dock="Bottom" Width="720">
                             <Button x:Name="deleteButton" Click="deleteButton_Click" Margin="10,0,10,0" Width="720">Delete Buyer</Button>
-                            <Button x:Name="selectButton" Click="selectButton_Click" Margin="10" Width="720">Detail view</Button>
-                    </StackPanel>
+                            <Button x:Name="selectBuyerButton" Click="selectButton_Click" Margin="10" Width="720">Detail view</Button>
+                        </StackPanel>
                         <ListBox x:Name="BuyersList" ItemsSource="{Binding AllBuyers}" Width="700" Height="290">
                             <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -31,16 +31,19 @@
                 </DockPanel>
             </TabItem>
             <TabItem Header="Products analise">
-                <Grid>
-                    <ListBox x:Name="ProducktsList" ItemsSource="{Binding AllProductAnalise}">
+                <DockPanel>
+                        <StackPanel DockPanel.Dock="Bottom" Width="720">
+                            <Button x:Name="selectProductButton" Click="selectProductButton_Click" Margin="10" Width="720">Detail view</Button>
+                        </StackPanel>
+                        <ListBox x:Name="ProducktsList" ItemsSource="{Binding AllProductAnalise}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <local:ProductUserControl></local:ProductUserControl>
+                                    <local:ProductUserControl MouseDoubleClick="ProductUserControl_MouseDoubleClick"></local:ProductUserControl>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                </Grid>
-            </TabItem>
+                </DockPanel>
+                </TabItem>
         </TabControl>
         </DockPanel>
     </Grid>

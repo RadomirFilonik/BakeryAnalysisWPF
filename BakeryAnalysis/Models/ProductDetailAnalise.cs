@@ -8,6 +8,6 @@ namespace BakeryAnalysis.Models
 {
     public class ProductDetailAnalise : ProductsAnalise
     {
-        public string Prise { get; set; }
+        public double Price { get; set; }
     }
 }

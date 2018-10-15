@@ -12,7 +12,7 @@ namespace BakeryAnalysis.Models
         public List<string> Product = new List<string>();
         public List<double> Purchased = new List<double>();
         public List<double> Returned = new List<double>();
-        public List<double> Prise = new List<double>();
+        public List<double> Price = new List<double>();
         public List<double> Profits = new List<double>();
         public double SumOfProfits { get; set; }
     }

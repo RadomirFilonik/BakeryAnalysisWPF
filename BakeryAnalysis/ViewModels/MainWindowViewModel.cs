@@ -28,10 +28,6 @@ namespace BakeryAnalysis.ViewModels
         public void RecreateAllProductAnalise(List<Buyer> newListOfBuyers)
         {
             AllProductAnalise = _productsAnaliseViewModel.ReturnProductsAnaliseViewModel(newListOfBuyers);
-            foreach (var item in AllProductAnalise)
-            {
-                Debug.WriteLine($"{item.Sales}");
-            }
         }
     }
 }

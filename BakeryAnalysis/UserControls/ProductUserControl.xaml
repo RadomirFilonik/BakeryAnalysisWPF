@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:BakeryAnalysis"
              mc:Ignorable="d" 
              d:DesignHeight="45" d:DesignWidth="750">
-    <Grid Background="AntiqueWhite" Margin="0,0,-148,0">
+    <Grid Background="AntiqueWhite">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150*"/>
             <ColumnDefinition Width="150*"/>

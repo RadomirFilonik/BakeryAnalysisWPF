@@ -1,5 +1,4 @@
-﻿using BakeryAnalysis.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BakeryAnalysis.View
+namespace BakeryAnalysis
 {
     /// <summary>
-    /// Interaction logic for ProductDetailAnalise.xaml
+    /// Interaction logic for ProductDetailUserControl.xaml
     /// </summary>
-    public partial class ProductDetailAnaliseView : Window
+    public partial class ProductDetailUserControl : UserControl
     {
-        public ProductDetailAnaliseView()
+        public ProductDetailUserControl()
         {
             InitializeComponent();
-            DataContext = ViewModelLocator.ProductDetailAnaliseViewModel;
         }
     }
 }

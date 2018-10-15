@@ -32,7 +32,6 @@ namespace BakeryAnalysis
             InitializeComponent();
 
             DataContext = ViewModelLocator.MainWindowViewModel;
-
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
@@ -64,6 +63,24 @@ namespace BakeryAnalysis
         private void BuyerUserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             selectButton_Click(sender, e);
+        }
+
+        private void ProductUserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            selectProductButton_Click(sender, e);
+        }
+
+        private void selectProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedProduct = ProducktsList.SelectedItem as ProductsAnalise;
+
+            if (selectedProduct != null)
+            {
+                var listOfBuyers = ViewModelLocator.MainWindowViewModel.AllBuyers.ToList();
+                ViewModelLocator.SetProductToProductDetailAnaliseViewModel(selectedProduct, listOfBuyers);
+                var _productDetailAnaliseView = new ProductDetailAnaliseView();
+                _productDetailAnaliseView.ShowDialog();
+            }
         }
     }
 }

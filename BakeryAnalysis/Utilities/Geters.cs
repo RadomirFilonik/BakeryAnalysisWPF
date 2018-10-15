@@ -83,7 +83,7 @@ namespace BakeryAnalysis.Utilities
                             {
                                 prise = double.Parse(currentString);
                             }
-                            buyer.Prise.Add(prise);
+                            buyer.Price.Add(prise);
                         }
                     }
 
@@ -123,7 +123,7 @@ namespace BakeryAnalysis.Utilities
                         }
 
 
-                        var profit = (buyer.Purchased[i] - buyer.Returned[i]) * buyer.Prise[i] - buyer.Purchased[i] * productMaterialCost;
+                        var profit = (buyer.Purchased[i] - buyer.Returned[i]) * buyer.Price[i] - buyer.Purchased[i] * productMaterialCost;
 
                         sumOfProfits += profit;
                         buyer.Profits.Add(profit);

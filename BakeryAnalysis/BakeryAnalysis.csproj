@@ -59,6 +59,9 @@
     <Compile Include="UserControls\BuyerUserControl.xaml.cs">
       <DependentUpon>BuyerUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ProductDetailUserControl.xaml.cs">
+      <DependentUpon>ProductDetailUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\CsvReader.cs" />
     <Compile Include="Utilities\Geters.cs" />
     <Compile Include="Models\Buyer.cs" />
@@ -80,6 +83,10 @@
       <DependentUpon>ProductDetailAnaliseView.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\BuyerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ProductDetailUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
