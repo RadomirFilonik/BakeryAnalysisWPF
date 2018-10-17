@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BakeryAnalysis.Models
 {
-    public class ProductsAnalise
+    public class ProductsAnalyse
     {
         public string NameOfProduct { get; set; }
         public double SumOfPurchased { get; set; }

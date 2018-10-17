@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BakeryAnalysis.ViewModels
 {
-    public class BuyersAnaliseViewModel
+    public class BuyersAnalyseViewModel
     {
-        public ObservableCollection<Buyer> ReturnBuyersAnaliseViewModel(List<Buyer> listOfBuyers)
+        public ObservableCollection<Buyer> ReturnBuyersAnalyseViewModel(List<Buyer> listOfBuyers)
         {
             ObservableCollection<Buyer> allBuyers = new ObservableCollection<Buyer>();
 

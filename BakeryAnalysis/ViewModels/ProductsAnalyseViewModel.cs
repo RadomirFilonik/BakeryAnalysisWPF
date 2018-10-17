@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace BakeryAnalysis.ViewModels
 {
-    public class ProductsAnaliseViewModel
+    public class ProductsAnalyseViewModel
     {
-        public ObservableCollection<ProductsAnalise> ReturnProductsAnaliseViewModel(List<Buyer> listOfBuyers)
+        public ObservableCollection<ProductsAnalyse> ComputeProductsAnalyseViewModel(List<Buyer> listOfBuyers)
         {
             
-            ObservableCollection<ProductsAnalise> allProductAnalise = new ObservableCollection<ProductsAnalise>();
+            ObservableCollection<ProductsAnalyse> allProductAnalyse = new ObservableCollection<ProductsAnalyse>();
             if (listOfBuyers.Count() != 0)
             {
                 
@@ -38,7 +38,7 @@ namespace BakeryAnalysis.ViewModels
                     }
                     double sales = sumOfPrusched - sumOfPReturned;
 
-                    var productAnalise = new ProductsAnalise()
+                    var productAnalyse = new ProductsAnalyse()
                     {
                         NameOfProduct = nameOfProduct,
                         SumOfPurchased = sumOfPrusched,
@@ -47,10 +47,10 @@ namespace BakeryAnalysis.ViewModels
                         SumOfProfits = sumOfProfits
                     };
 
-                    allProductAnalise.Add(productAnalise);
+                    allProductAnalyse.Add(productAnalyse);
                 }
             }
-            return allProductAnalise;
+            return allProductAnalyse;
         }
     }
 }

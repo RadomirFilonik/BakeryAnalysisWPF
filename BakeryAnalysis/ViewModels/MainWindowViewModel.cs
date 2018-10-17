@@ -11,23 +11,37 @@ namespace BakeryAnalysis.ViewModels
 {
     public class MainWindowViewModel
     {
-        private readonly ProductsAnaliseViewModel _productsAnaliseViewModel = new ProductsAnaliseViewModel();
-        private readonly BuyersAnaliseViewModel _buyersAnaliseViewModel = new BuyersAnaliseViewModel();
+        private readonly ProductsAnalyseViewModel _productsAnalyseViewModel = new ProductsAnalyseViewModel();
+        private readonly BuyersAnalyseViewModel _buyersAnalyseViewModel = new BuyersAnalyseViewModel();
 
-        public ObservableCollection<ProductsAnalise> AllProductAnalise { get; set; }
+        public ObservableCollection<ProductsAnalyse> AllProductAnalyse { get; set; }
         public ObservableCollection<Buyer> AllBuyers { get; set; }
 
         public MainWindowViewModel(List<Buyer> listOfBuyers)
         {
-            AllProductAnalise = new ObservableCollection<ProductsAnalise>();
+            AllProductAnalyse = new ObservableCollection<ProductsAnalyse>();
             AllBuyers = new ObservableCollection<Buyer>();
-            AllBuyers = _buyersAnaliseViewModel.ReturnBuyersAnaliseViewModel(listOfBuyers);
-            AllProductAnalise = _productsAnaliseViewModel.ReturnProductsAnaliseViewModel(listOfBuyers);
+            AllBuyers = _buyersAnalyseViewModel.ReturnBuyersAnalyseViewModel(listOfBuyers);
+            AllProductAnalyse = _productsAnalyseViewModel.ComputeProductsAnalyseViewModel(listOfBuyers);
         }
 
-        public void RecreateAllProductAnalise(List<Buyer> newListOfBuyers)
+        public void RecreateAllProductAnalyse(List<Buyer> newListOfBuyers)
         {
-            AllProductAnalise = _productsAnaliseViewModel.ReturnProductsAnaliseViewModel(newListOfBuyers);
+            Debug.WriteLine(AllProductAnalyse.Count());
+            var countOfAllProductAnalyse = AllProductAnalyse.Count();
+            for (int i = 0; i < countOfAllProductAnalyse; i++)
+            {
+                AllProductAnalyse.Remove(AllProductAnalyse[0]);
+            }
+
+            Debug.WriteLine(AllProductAnalyse.Count);
+
+            var newList = _productsAnalyseViewModel.ComputeProductsAnalyseViewModel(newListOfBuyers);
+
+            foreach (var productsAnalyse in newList)
+            {
+                AllProductAnalyse.Add(productsAnalyse);
+            }
         }
     }
 }

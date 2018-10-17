@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace BakeryAnalysis.ViewModels
 {
-    public class ProductDetailAnaliseViewModel
+    public class ProductDetailAnalyseViewModel
     {
-        public ObservableCollection<ProductDetailAnalise> ProductDetailAnalise { get; set; }
+        public ObservableCollection<ProductDetailAnalyse> ProductDetailAnalyse { get; set; }
         public string SelectedProductName { get; set; }
 
-        public ProductDetailAnaliseViewModel(ProductsAnalise selectedProductsAnalise, List<Buyer> listOfBuyers)
+        public ProductDetailAnalyseViewModel(ProductsAnalyse selectedProductsAnalyse, List<Buyer> listOfBuyers)
         {
-            ProductDetailAnalise = new ObservableCollection<ProductDetailAnalise>();
-            SelectedProductName = selectedProductsAnalise.NameOfProduct;
+            ProductDetailAnalyse = new ObservableCollection<ProductDetailAnalyse>();
+            SelectedProductName = selectedProductsAnalyse.NameOfProduct;
             
 
             var numberOfDiffrentPrices = 0;
@@ -27,7 +27,7 @@ namespace BakeryAnalysis.ViewModels
             var listOfDiffrentPrices = listOfPrices.Distinct().OrderByDescending(x => x).ToList();
             numberOfDiffrentPrices = listOfDiffrentPrices.Count();
 
-            ProductDetailAnalise = CreateListOfProductDetailAnalise(numberOfDiffrentPrices, indexOfProduct, listOfDiffrentPrices, listOfBuyers);
+            ProductDetailAnalyse = CreateListOfProductDetailAnalyse(numberOfDiffrentPrices, indexOfProduct, listOfDiffrentPrices, listOfBuyers);
         }
  
         private List<double> CreateListOfPrices(List<Buyer> listOfBuyers, int indexOfProductInListOfBuyers)
@@ -55,9 +55,9 @@ namespace BakeryAnalysis.ViewModels
             return result;
         }
 
-        private ObservableCollection<ProductDetailAnalise> CreateListOfProductDetailAnalise(int numberOfDiffrentPrices, int indexOfProduct, List<double> listOfDiffrentPrices, List<Buyer> listOfBuyers)
+        private ObservableCollection<ProductDetailAnalyse> CreateListOfProductDetailAnalyse(int numberOfDiffrentPrices, int indexOfProduct, List<double> listOfDiffrentPrices, List<Buyer> listOfBuyers)
         {
-            ObservableCollection<ProductDetailAnalise> result = new ObservableCollection<ProductDetailAnalise>();
+            ObservableCollection<ProductDetailAnalyse> result = new ObservableCollection<ProductDetailAnalyse>();
 
             for (int i = 0; i < numberOfDiffrentPrices; i++)
             {
@@ -81,7 +81,7 @@ namespace BakeryAnalysis.ViewModels
 
                     }
 
-                    var newProductDetailAnalise = new ProductDetailAnalise
+                    var newProductDetailAnalyse = new ProductDetailAnalyse
                     {
                         SumOfProfits = sumOfProfits,
                         SumOfPurchased = sumOfPurchased,
@@ -90,7 +90,7 @@ namespace BakeryAnalysis.ViewModels
                         Price = price
                     };
 
-                    result.Add(newProductDetailAnalise);
+                    result.Add(newProductDetailAnalyse);
                 }
                 
             }

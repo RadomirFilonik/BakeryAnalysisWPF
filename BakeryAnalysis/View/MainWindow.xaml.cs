@@ -44,7 +44,7 @@ namespace BakeryAnalysis
 
                 var newListOfBuyers = ViewModelLocator.MainWindowViewModel.AllBuyers.ToList();
                 
-                ViewModelLocator.MainWindowViewModel.RecreateAllProductAnalise(newListOfBuyers);
+                ViewModelLocator.MainWindowViewModel.RecreateAllProductAnalyse(newListOfBuyers);
             }
         }
 
@@ -72,14 +72,14 @@ namespace BakeryAnalysis
 
         private void selectProductButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedProduct = ProducktsList.SelectedItem as ProductsAnalise;
+            var selectedProduct = ProducktsList.SelectedItem as ProductsAnalyse;
 
             if (selectedProduct != null)
             {
                 var listOfBuyers = ViewModelLocator.MainWindowViewModel.AllBuyers.ToList();
-                ViewModelLocator.SetProductToProductDetailAnaliseViewModel(selectedProduct, listOfBuyers);
-                var _productDetailAnaliseView = new ProductDetailAnaliseView();
-                _productDetailAnaliseView.ShowDialog();
+                ViewModelLocator.SetProductToProductDetailAnalyseViewModel(selectedProduct, listOfBuyers);
+                var _productDetailAnalyseView = new ProductDetailAnalyseView();
+                _productDetailAnalyseView.ShowDialog();
             }
         }
     }

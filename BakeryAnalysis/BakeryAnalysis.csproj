@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\ProductDetailAnalise.cs" />
+    <Compile Include="Models\ProductDetailAnalyse.cs" />
     <Compile Include="UserControls\BuyerUserControl.xaml.cs">
       <DependentUpon>BuyerUserControl.xaml</DependentUpon>
     </Compile>
@@ -66,21 +66,21 @@
     <Compile Include="Utilities\Geters.cs" />
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductsAnalise.cs" />
+    <Compile Include="Models\ProductsAnalyse.cs" />
     <Compile Include="UserControls\ProductUserControl.xaml.cs">
       <DependentUpon>ProductUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\ViewModelLocator.cs" />
     <Compile Include="ViewModels\BuyerDetailViewModel.cs" />
-    <Compile Include="ViewModels\BuyersAnaliseViewModel.cs" />
+    <Compile Include="ViewModels\BuyersAnalyseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\ProductDetailAnaliseViewModel.cs" />
-    <Compile Include="ViewModels\ProductsAnaliseViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetailAnalyseViewModel.cs" />
+    <Compile Include="ViewModels\ProductsAnalyseViewModel.cs" />
     <Compile Include="View\BuyerDetailView.xaml.cs">
       <DependentUpon>BuyerDetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ProductDetailAnaliseView.xaml.cs">
-      <DependentUpon>ProductDetailAnaliseView.xaml</DependentUpon>
+    <Compile Include="View\ProductDetailAnalyseView.xaml.cs">
+      <DependentUpon>ProductDetailAnalyseView.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\BuyerUserControl.xaml">
       <SubType>Designer</SubType>
@@ -110,7 +110,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ProductDetailAnaliseView.xaml">
+    <Page Include="View\ProductDetailAnalyseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,13 +133,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="FilesForAnalise\Karol.csv">
+    <None Include="FilesForAnalyse\Karol.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="FilesForAnalise\Products.csv">
+    <None Include="FilesForAnalyse\Products.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="FilesForAnalise\KarolZly.csv">
+    <None Include="FilesForAnalyse\KarolZly.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">

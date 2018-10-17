@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace BakeryAnalysis.View
 {
     /// <summary>
-    /// Interaction logic for ProductDetailAnalise.xaml
+    /// Interaction logic for ProductDetailAnalyse.xaml
     /// </summary>
-    public partial class ProductDetailAnaliseView : Window
+    public partial class ProductDetailAnalyseView : Window
     {
-        public ProductDetailAnaliseView()
+        public ProductDetailAnalyseView()
         {
             InitializeComponent();
-            DataContext = ViewModelLocator.ProductDetailAnaliseViewModel;
+            DataContext = ViewModelLocator.ProductDetailAnalyseViewModel;
         }
     }
 }

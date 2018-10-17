@@ -1,11 +1,11 @@
-﻿<Window x:Class="BakeryAnalysis.View.ProductDetailAnaliseView"
+﻿<Window x:Class="BakeryAnalysis.View.ProductDetailAnalyseView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BakeryAnalysis"
         mc:Ignorable="d"
-        Title="ProductDetailAnalise" Height="450" Width="800">
+        Title="ProductDetailAnalyse" Height="450" Width="800">
     <Grid>
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Margin="12,0,0,0">
@@ -29,7 +29,7 @@
             <StackPanel DockPanel.Dock="Right" Margin="10,0,10,0">
                 <Button Margin="10,0,10,0" Width="80">Exit</Button>
             </StackPanel>
-            <ListBox x:Name="ProductsList" ItemsSource="{Binding ProductDetailAnalise}" DockPanel.Dock="Left"  Width="650">
+            <ListBox x:Name="ProductsList" ItemsSource="{Binding ProductDetailAnalyse}" DockPanel.Dock="Left"  Width="650">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <local:ProductDetailUserControl></local:ProductDetailUserControl>

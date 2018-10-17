@@ -24,8 +24,6 @@ namespace BakeryAnalysis.View
         {
             InitializeComponent();
             DataContext = ViewModelLocator.BuyerDetailViewModel;
-            //ProductsList.ItemsSource = ViewModelLocator.BuyerDetailViewModel.Produkcts;
-            //BuyerName.Text = ViewModelLocator.BuyerDetailViewModel.SelectedBuyerName;
         }
     }
 }

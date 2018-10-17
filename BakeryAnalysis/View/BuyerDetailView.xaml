@@ -29,7 +29,7 @@
             <StackPanel DockPanel.Dock="Right" Margin="10,0,10,0">
                 <Button Margin="10,0,10,0" Width="80">Exit</Button>
             </StackPanel>
-            <ListBox x:Name="ProductsList" ItemsSource="{Binding Produkcts}" DockPanel.Dock="Left"  Width="750">
+            <ListBox x:Name="ProductsList" ItemsSource="{Binding Products}" DockPanel.Dock="Left"  Width="750">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <local:ProductUserControl></local:ProductUserControl>
